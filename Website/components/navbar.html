@@ -1,0 +1,68 @@
+<!-- TOP BAR -->
+<div id="topBar" class="fixed top-0 w-full bg-black text-white text-center py-2 text-sm dark:bg-black dark:text-white z-50">
+    Sign up and get 20% off your first order.
+    <a href="#" class="underline">Sign Up Now</a>
+    <button onclick="closeTopBar()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-lg hover:text-gray-300">×</button>
+</div>
+
+<!-- HEADER -->
+<header class="relative">
+    <!-- NAVBAR -->
+    <nav id="mainNav" class="fixed top-8 transition-all duration-300 bg-white dark:bg-black z-50 flex justify-between items-center px-6 md:px-16 py-5 border-b dark:border-gray-700 w-full">
+        <a href="index.html"><h1 class="font-extrabold text-2xl">ANOTHER</h1></a>
+
+        <!-- NAV LINKS desktop -->
+        <ul class="hidden md:flex gap-8 font-medium">
+            <li><a href="shop.html" class="cursor-pointer">Shop</a></li>
+            <li><a href="#" class="cursor-pointer">Blog</a></li>
+            <li><a href="#" class="cursor-pointer">About Us</a></li>
+            <li><a href="#" class="cursor-pointer">Contact Us</a></li>
+        </ul>
+
+        <!-- SEARCH -->
+        <div class="hidden md:flex items-center bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full flex-1 max-w-xs lg:max-w-sm xl:max-w-md">
+            <i class="fa fa-search mr-2 text-gray-500"></i>
+            <input type="text" placeholder="Search for products..." class="bg-transparent focus:outline-none w-full text-sm">
+        </div>
+
+        <!-- RIGHT SIDE CONTAINER: ICONS + MENU BUTTON -->
+        <div class="flex items-center gap-4">
+            <!-- ICONS + DARK MODE -->
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" type="button" class="text-xl">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="pembayaran.html"><i class="fa fa-shopping-cart text-xl cursor-pointer"></i></a>
+                <i class="fa fa-user text-xl cursor-pointer hidden md:block"></i>
+                <!-- MOBILE SEARCH ICON -->
+                <i class="fa fa-search text-xl cursor-pointer md:hidden" onclick="toggleMobileSearch()"></i>
+            </div>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button class="md:hidden text-2xl" onclick="openMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-black z-50 transform -translate-x-full transition-transform duration-300 ease-in-out px-6 py-20 space-y-6 text-lg flex flex-col" style="display: none;">
+        <button class="absolute top-4 right-4 text-2xl" onclick="openMenu()">×</button>
+        <div class="flex-1 space-y-6">
+            <a href="shop.html" class="block cursor-pointer">Shop</a>
+            <a href="#" class="block cursor-pointer">Blog</a>
+            <a href="#" class="block cursor-pointer">About Us</a>
+            <a href="#" class="block cursor-pointer">Contact Us</a>
+        </div>
+        <div class="flex justify-center gap-4 py-4 border-t border-gray-300 dark:border-gray-600">
+            <a href="#" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full cursor-pointer">Masuk</a>
+            <a href="#" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full cursor-pointer">Daftar</a>
+        </div>
+    </div>
+
+    <!-- MOBILE SEARCH BAR -->
+    <div id="mobileSearch" class="hidden fixed top-20 left-0 right-0 bg-white dark:bg-black px-6 py-4 border-b dark:border-gray-700 shadow-lg z-40">
+        <div class="flex items-center bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full">
+            <i class="fa fa-search mr-2 text-gray-500"></i>
+            <input type="text" placeholder="Search for products..." class="bg-transparent focus:outline-none w-full text-sm">
+        </div>
+    </div>
+</header>
