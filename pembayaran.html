@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fashion e-commerce shopping cart and payment page.">
+    <meta name="keywords" content="fashion, clothing, e-commerce, cart, payment">
+    <title>Another - Shopping Cart</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Dark Mode Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-black dark:text-white transition-all duration-300">
+
+    <!-- Include Navbar -->
+    <div include-html="components/navbar.html"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-20 px-6 md:px-16 py-8">
+        <!-- BREADCRUMB -->
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-8">
+            <a href="index.html" class="hover:underline">Home</a> > Cart
+        </div>
+
+        <!-- CART CONTENT -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- LEFT COLUMN: CART ITEMS -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-6">
+                <div class="space-y-6">
+                    <!-- CART ITEM 1 -->
+                    <div id="item1" class="flex items-center gap-4 pb-4 border-b dark:border-gray-700">
+                        <img src="img/Frame 38.png" alt="Gradient Graphic T-shirt" class="w-20 h-20 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-lg">Gradient Graphic T-shirt</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Size: Large</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Color: White</p>
+                            <p class="font-bold text-lg item-price">Rp 2,175,000</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-minus w-8 h-8 rounded-full border dark:border-gray-600 flex items-center justify-center">-</button>
+                            <span class="quantity w-8 text-center">1</span>
+                            <button class="btn-plus w-8 h-8 rounded-full border dark:border-gray-600 flex items-center justify-center">+</button>
+                        </div>
+                        <button class="text-red-500 text-xl"><i class="fa fa-trash"></i></button>
+                    </div>
+
+                    <!-- CART ITEM 2 -->
+                    <div id="item2" class="flex items-center gap-4 pb-4 border-b dark:border-gray-700">
+                        <img src="img/Frame 34.png" alt="Checkered Shirt" class="w-20 h-20 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-lg">Checkered Shirt</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Size: Medium</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Color: Red</p>
+                            <p class="font-bold text-lg item-price">Rp 2,700,000</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-minus w-8 h-8 rounded-full border dark:border-gray-600 flex items-center justify-center">-</button>
+                            <span class="quantity w-8 text-center">1</span>
+                            <button class="btn-plus w-8 h-8 rounded-full border dark:border-gray-600 flex items-center justify-center">+</button>
+                        </div>
+                        <button class="text-red-500 text-xl"><i class="fa fa-trash"></i></button>
+                    </div>
+
+                    <!-- CART ITEM 3 -->
+                    <div id="item3" class="flex items-center gap-4">
+                        <img src="img/Frame 33.png" alt="Skinny Fit Jeans" class="w-20 h-20 rounded-lg object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-lg">Skinny Fit Jeans</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Size: Large</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Color: Blue</p>
+                            <p class="font-bold text-lg item-price">Rp 3,600,000</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="btn-minus w-8 h-8 rounded-full border dark:border-gray-600 flex items-center justify-center">-</button>
+                            <span class="quantity w-8 text-center">1</span>
+                            <button class="btn-plus w-8 h-8 rounded-full border dark:border-gray-600 flex items-center justify-center">+</button>
+                        </div>
+                        <button class="text-red-500 text-xl"><i class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: ORDER SUMMARY -->
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-6">
+                <h3 class="text-xl font-bold mb-6">Order Summary</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span>Subtotal</span>
+                        <span class="subtotal">Rp 8,475,000</span>
+                    </div>
+                    <div class="flex justify-between text-red-500">
+                        <span>Discount (-20%)</span>
+                        <span class="discount">-Rp 1,695,000</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Delivery Fee</span>
+                        <span>Rp 225,000</span>
+                    </div>
+                    <hr class="dark:border-gray-700">
+                    <div class="flex justify-between text-xl font-bold">
+                        <span>Total</span>
+                        <span class="total">Rp 7,005,000</span>
+                    </div>
+                </div>
+
+                <!-- PROMO CODE -->
+                <div class="mt-6 flex gap-2">
+                    <input type="text" placeholder="Add promo code" class="flex-1 px-4 py-2 border dark:border-gray-600 rounded-lg bg-transparent">
+                    <button class="px-4 py-2 bg-black dark:bg-white dark:text-black text-white rounded-lg font-semibold">Apply</button>
+                </div>
+
+                <!-- CHECKOUT BUTTON -->
+                <button class="w-full mt-6 bg-black dark:bg-white dark:text-black text-white py-3 rounded-lg font-semibold text-lg">
+                    Go to Checkout →
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div include-html="components/footer.html"></div>
+
+    <!-- SCRIPTS -->
+    <script src="js/include.js"></script>
+    <script src="script.js"></script>
+
+    <!-- CART FUNCTIONALITY -->
+    <script>
+        // Product prices in Rupiah
+        const productPrices = {
+            item1: 2175000,
+            item2: 2700000,
+            item3: 3600000
+        };
+
+        // Initialize quantities
+        let quantities = {
+            item1: 1,
+            item2: 1,
+            item3: 1
+        };
+
+        // Function to format number with commas
+        function formatRupiah(number) {
+            return 'Rp ' + number.toLocaleString('id-ID');
+        }
+
+        // Function to update cart calculations
+        function updateCart() {
+            // Calculate subtotal
+            let subtotal = 0;
+            for (let item in quantities) {
+                subtotal += quantities[item] * productPrices[item];
+            }
+
+            // Calculate discount (20%)
+            const discount = Math.round(subtotal * 0.2);
+
+            // Delivery fee
+            const deliveryFee = 225000;
+
+            // Calculate total
+            const total = subtotal - discount + deliveryFee;
+
+            // Update display
+            document.querySelector('.subtotal').textContent = formatRupiah(subtotal);
+            document.querySelector('.discount').textContent = '-Rp ' + discount.toLocaleString('id-ID');
+            document.querySelector('.total').textContent = formatRupiah(total);
+        }
+
+        // Function to update quantity display and item price
+        function updateQuantity(itemId, change) {
+            const quantityElement = document.querySelector(`#${itemId} .quantity`);
+            const priceElement = document.querySelector(`#${itemId} .item-price`);
+
+            quantities[itemId] += change;
+
+            // Prevent quantity from going below 1
+            if (quantities[itemId] < 1) {
+                quantities[itemId] = 1;
+            }
+
+            // Update quantity display
+            quantityElement.textContent = quantities[itemId];
+
+            // Update item price display
+            const itemTotal = quantities[itemId] * productPrices[itemId];
+            priceElement.textContent = formatRupiah(itemTotal);
+
+            // Update cart totals
+            updateCart();
+        }
+
+        // Function to remove item from cart
+        function removeItem(itemId) {
+            // Remove the item from the DOM
+            const itemElement = document.getElementById(itemId);
+            if (itemElement) {
+                itemElement.remove();
+            }
+
+            // Remove from quantities object
+            delete quantities[itemId];
+
+            // Update cart totals
+            updateCart();
+        }
+
+        // Add event listeners to quantity buttons and trash buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Item 1 buttons
+            document.querySelector('#item1 .btn-plus').addEventListener('click', () => updateQuantity('item1', 1));
+            document.querySelector('#item1 .btn-minus').addEventListener('click', () => updateQuantity('item1', -1));
+            document.querySelector('#item1 .text-red-500').addEventListener('click', () => removeItem('item1'));
+
+            // Item 2 buttons
+            document.querySelector('#item2 .btn-plus').addEventListener('click', () => updateQuantity('item2', 1));
+            document.querySelector('#item2 .btn-minus').addEventListener('click', () => updateQuantity('item2', -1));
+            document.querySelector('#item2 .text-red-500').addEventListener('click', () => removeItem('item2'));
+
+            // Item 3 buttons
+            document.querySelector('#item3 .btn-plus').addEventListener('click', () => updateQuantity('item3', 1));
+            document.querySelector('#item3 .btn-minus').addEventListener('click', () => updateQuantity('item3', -1));
+            document.querySelector('#item3 .text-red-500').addEventListener('click', () => removeItem('item3'));
+
+            // Initial cart update
+            updateCart();
+        });
+    </script>
+
+</body>
+</html>
