@@ -1,0 +1,124 @@
+<!-- MOBILE FILTER PANEL -->
+<div id="mobileFilterPanel" class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-lg overflow-y-auto">
+    <!-- HEADER PANEL -->
+    <div class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
+        <h2 class="font-bold text-xl">Filters</h2>
+        <button onclick="closeMobileFilters()" class="text-2xl text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">×</button>
+    </div>
+
+    <!-- CATEGORY LIST SECTION -->
+    <div class="p-6">
+        <ul class="space-y-4">
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span class="font-medium">T-shirts</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span class="font-medium">Shorts</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span class="font-medium">Shirts</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span class="font-medium">Hoodie</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span class="font-medium">Jeans</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+        </ul>
+    </div>
+
+    <!-- PRICE FILTER SECTION -->
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+        <h3 class="font-medium mb-4">Price</h3>
+        <div class="relative mb-4">
+            <!-- Dual Range Slider Container -->
+            <div class="relative">
+                <input type="range" min="0" max="10000000" value="0" id="mobileMinPrice" class="absolute w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 z-10">
+                <input type="range" min="0" max="10000000" value="10000000" id="mobileMaxPrice" class="absolute w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 z-20">
+            </div>
+            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400 mt-2">
+                <span id="mobileMinPriceLabel">Rp 0</span>
+                <span id="mobileMaxPriceLabel">Rp 10,000,000</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- COLOR FILTER SECTION -->
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+        <h3 class="font-medium mb-4">Colors</h3>
+        <div class="grid grid-cols-4 gap-3">
+            <button class="w-10 h-10 rounded-full bg-green-500 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="green"></button>
+            <button class="w-10 h-10 rounded-full bg-red-500 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="red"></button>
+            <button class="w-10 h-10 rounded-full bg-yellow-500 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="yellow"></button>
+            <button class="w-10 h-10 rounded-full bg-orange-500 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="orange"></button>
+            <button class="w-10 h-10 rounded-full bg-blue-300 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="light-blue"></button>
+            <button class="w-10 h-10 rounded-full bg-blue-500 border-2 border-blue-500 cursor-pointer transition-colors color-swatch selected" data-color="blue"></button>
+            <button class="w-10 h-10 rounded-full bg-purple-500 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="purple"></button>
+            <button class="w-10 h-10 rounded-full bg-pink-500 border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="pink"></button>
+            <button class="w-10 h-10 rounded-full bg-white border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="white"></button>
+            <button class="w-10 h-10 rounded-full bg-black border-2 border-gray-300 cursor-pointer hover:border-blue-500 transition-colors color-swatch" data-color="black"></button>
+        </div>
+    </div>
+
+    <!-- SIZE FILTER SECTION -->
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+        <h3 class="font-medium mb-4">Size</h3>
+        <div class="flex flex-wrap gap-2">
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">XX-Small</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">X-Small</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">Small</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">Medium</button>
+            <button class="px-3 py-2 bg-black text-white border border-black rounded-full text-sm size-pill selected">Large</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">X-Large</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">XX-Large</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">3X-Large</button>
+            <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-full text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors size-pill">4X-Large</button>
+        </div>
+    </div>
+
+    <!-- DRESS STYLE SECTION -->
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+        <h3 class="font-medium mb-4">Dress Style</h3>
+        <ul class="space-y-3">
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span>Casual</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span>Formal</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span>Party</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+            <li class="flex justify-between items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 p-2 rounded">
+                <span>Gym</span>
+                <i class="fa fa-chevron-right text-gray-500"></i>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SORT BY SECTION -->
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+        <h3 class="font-medium mb-4">Sort by</h3>
+        <select class="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-transparent">
+            <option>Most Popular</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Newest</option>
+        </select>
+    </div>
+
+    <!-- APPLY FILTER BUTTON -->
+    <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+        <button class="w-full bg-black dark:bg-white dark:text-black text-white py-4 rounded-full font-semibold text-lg apply-mobile-filter">
+            Apply Filter
+        </button>
+    </div>
+</div>
