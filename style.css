@@ -398,6 +398,418 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
+/* =====================
+   Landing sections (Browse by style replacement)
+   - Pure CSS (no framework) using Flexbox
+   - Images fill column width and have 16px radius
+   - Responsive: column under 768px, row on desktop
+   ===================== */
+.landing-section {
+    padding: 48px 24px;
+}
+.landing-row {
+    display: flex;
+    flex-direction: column; /* mobile first: stacked */
+    gap: 24px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.landing-row.reverse {
+    /* on desktop this will flip order using row-reverse */
+}
+.landing-image,
+.landing-text {
+    width: 100%;
+}
+.landing-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 16px;
+}
+.landing-text h2 {
+    font-size: 28px;
+    color: #222; /* abu gelap */
+    margin-bottom: 8px;
+}
+.landing-text .company {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+.landing-text p {
+    color: #444;
+    line-height: 1.6;
+    max-width: 60ch;
+}
+
+@media (min-width: 768px) {
+    .landing-row {
+        flex-direction: row;
+        gap: 32px;
+        align-items: center;
+    }
+    .landing-row.reverse {
+        flex-direction: row-reverse;
+    }
+    .landing-image, .landing-text {
+        flex: 1 1 50%;
+    }
+    .landing-section {
+        padding: 64px 32px;
+    }
+    .landing-image img {
+        max-height: 420px;
+    }
+}
+
+/* Dark mode overrides for landing sections */
+.dark .landing-section {
+    /* keep background transparent so page background shows through */
+}
+.dark .landing-text h2 {
+    color: #f8fafc; /* very light */
+}
+.dark .landing-text .company {
+    color: #cbd5e1; /* soft-muted */
+}
+.dark .landing-text p {
+    color: #e2e8f0; /* readable paragraph color */
+}
+
+/* =====================
+   Testimonials / Reviews styles
+   - Grid of 3 cards on desktop, 1 column on small screens
+   - Cards: white background, border-radius 16px, soft shadow, equal height
+   - Avatar circle 50-60px positioned top-left inside card
+   - Navigation buttons (visual only) at the header right
+   ===================== */
+.testimonials-section {
+    padding: 48px 24px;
+}
+.testimonials-header {
+    align-items: center;
+}
+.testimonials-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #222;
+}
+.testimonials-nav {
+    display: flex;
+    gap: 8px;
+}
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(16,24,40,0.08);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px; /* ensure equal height */
+}
+.testimonial-card .card-top {
+    display: flex;
+    gap: 12px;
+}
+.avatar {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    color: #111827;
+    font-weight: 700;
+}
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.card-content .card-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #111827;
+}
+.card-content .card-body {
+    color: #4b5563;
+    line-height: 1.5;
+}
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+.rating {
+    color: #f59e0b; /* amber */
+    font-size: 16px;
+}
+.username {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+@media (min-width: 768px) {
+    .testimonials-section {
+        padding: 64px 32px;
+    }
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Dark mode tweaks */
+.dark .testimonial-card {
+    background: #0b1220;
+    box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+}
+.dark .testimonial-card .card-content .card-title {
+    color: #f8fafc;
+}
+.dark .testimonial-card .card-content .card-body {
+    color: #cbd5e1;
+}
+.dark .username {
+    color: #94a3b8;
+}
+
+/* =====================
+   Dark mode global fixes (ensure custom CSS respects .dark)
+   These override static light-mode values so elements become responsive
+   when the `.dark` class is toggled on the root.
+   ===================== */
+/* Page background / text */
+.dark body {
+    background: #000 !important;
+    color: #e6eef8 !important;
+}
+
+/* Navbar and top bar */
+.dark .navbar {
+    background: transparent;
+    border-bottom-color: rgba(255,255,255,0.06);
+}
+.dark .top-bar {
+    background: #000;
+    color: #fff;
+}
+
+/* Product cards and grids */
+.dark .product-card {
+    background: #071024;
+    border-color: #1f2937;
+    color: #e6eef8;
+}
+.dark .product-card h4,
+.dark .product-card .price {
+    color: #f8fafc;
+}
+
+/* Style cards */
+.dark .style-card {
+    background: #0b1220;
+    color: #e6eef8;
+}
+
+/* Brand strip borders */
+.dark .brand-strip {
+    border-top-color: rgba(255,255,255,0.04);
+    border-bottom-color: rgba(255,255,255,0.04);
+    color: #cbd5e1;
+}
+
+/* Section titles */
+.dark .section-title,
+.dark .testimonials-title {
+    color: #f8fafc;
+}
+
+/* Buttons that used dark text on white should invert or remain visible */
+.dark .btn {
+    background: #fff;
+    color: #071024;
+}
+
+/* Ensure footer links and footer text remain readable */
+.dark footer {
+    background: #000;
+    color: #e6eef8;
+}
+
+/* Search pill */
+.dark .search {
+    background: #111827;
+}
+
+/* =====================
+   Auth pages styles (login / register)
+   - Uses existing Inter font
+   - Soft green-yellow brand: #8FBA3B
+   ===================== */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6f8f5; /* soft page background for auth pages */
+    padding: 24px;
+}
+.auth-card {
+    width: 90%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+}
+.auth-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #111827;
+}
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+.auth-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #e6e8eb;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #111827;
+    background: #ffffff;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.auth-input:focus {
+    outline: none;
+    border-color: #8FBA3B; /* accent */
+    box-shadow: 0 6px 18px rgba(143,186,59,0.12);
+}
+.auth-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#8FBA3B 0%, #C7DA48 100%);
+    color: #062014;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    box-shadow: 0 8px 20px rgba(139,164,48,0.12);
+    margin-top: 4px;
+}
+.auth-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.98;
+}
+.auth-note {
+    text-align: center;
+    margin-top: 16px;
+    color: #555;
+    font-size: 14px;
+}
+.auth-link {
+    color: #8FBA3B;
+    font-weight: 700;
+    text-decoration: none;
+}
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Accessibility helper */
+.sr-only {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden; clip: rect(1px,1px,1px,1px);
+    white-space: nowrap; border: 0; padding: 0; margin: -1px;
+}
+
+@media (max-width: 420px) {
+    .auth-card { padding: 24px; }
+    .auth-title { font-size: 22px; }
+}
+
+/* Dark mode adjustments for auth pages */
+.dark .auth-page { background: #071024; }
+.dark .auth-card { background: #071012; box-shadow: 0 10px 30px rgba(2,6,23,0.6); }
+.dark .auth-title { color: #f8fafc; }
+.dark .auth-input { background: #0b1220; border-color: #1f2937; color: #e6eef8; }
+.dark .auth-input:focus { box-shadow: 0 6px 18px rgba(143,186,59,0.12); border-color: #8FBA3B; }
+.dark .auth-note { color: #cbd5e1; }
+.dark .auth-link { color: #cfe28a; }
+
+/* Auth form feedback + validation styles */
+.form-message {
+    display: none;
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+.form-message.error {
+    background: #fff5f5;
+    color: #9b1c1c;
+    border: 1px solid rgba(155,28,28,0.08);
+}
+.form-message.success {
+    background: #f6fff0;
+    color: #1f6f0a;
+    border: 1px solid rgba(31,111,10,0.08);
+}
+.input-error {
+    border-color: #f43f5e !important;
+    box-shadow: 0 6px 18px rgba(244,63,94,0.07) !important;
+}
+.pw-note {
+    margin-top: -6px;
+    margin-bottom: 8px;
+    color: #ef4444;
+    font-size: 13px;
+}
+
 @media (max-width: 420px) {
     .promo-code {
         gap: 4px;

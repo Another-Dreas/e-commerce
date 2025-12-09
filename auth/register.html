@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Register - Another Fashion E-commerce" />
+    <title>Register - Another Fashion E-commerce</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" 
+          rel="stylesheet">
+
+    <script>
+        tailwind.config = { darkMode: 'class' };
+    </script>
+
+    <!-- FULL CSS TANPA @apply (langsung tampil tanpa build) -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* CARD */
+        .register-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 1.25rem;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 450px;
+            transition: 0.3s;
+        }
+        .dark .register-card {
+            background: #111;
+            border-color: #333;
+            box-shadow: 0 8px 30px rgba(255,255,255,0.05);
+        }
+
+        /* TITLE */
+        .register-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* DESCRIPTION */
+        .register-desc {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .dark .register-desc {
+            color: #aaa;
+        }
+
+        /* LABEL */
+        .register-label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        /* INPUT */
+        .register-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 0.85rem;
+            border: 1px solid #d0d0d0;
+            background: #f3f3f3;
+            outline: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .register-input:focus {
+            border-color: black;
+            background: #fff;
+        }
+        .dark .register-input {
+            background: #1d1d1d;
+            border-color: #333;
+            color: white;
+        }
+        .dark .register-input:focus {
+            border-color: white;
+        }
+
+        /* BUTTON */
+        .register-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: black;
+            color: white;
+            border-radius: 0.85rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .register-btn:hover {
+            opacity: 0.85;
+        }
+        .dark .register-btn {
+            background: white;
+            color: black;
+        }
+
+        /* LINK */
+        .register-link {
+            font-weight: 600;
+            text-decoration: none;
+            color: black;
+        }
+        .register-link:hover {
+            opacity: 0.7;
+        }
+        .dark .register-link {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body class="bg-white dark:bg-black dark:text-white transition-all duration-300">
+
+    <!-- NAVBAR -->
+    <div include-html="../components/navbar.html"></div>
+
+    <!-- CONTENT -->
+    <main class="px-6 md:px-16 pt-28 pb-16 flex justify-center">
+
+        <div class="register-card">
+
+            <h1 class="register-title">Create Account</h1>
+            <p class="register-desc">Daftar sekarang untuk mulai berbelanja dan menikmati fitur lengkap Another.</p>
+
+            <form class="space-y-6">
+
+                <!-- Nama -->
+                <div>
+                    <label class="register-label">Nama Lengkap</label>
+                    <input type="text" placeholder="Nama Anda" class="register-input" required>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="register-label">Email</label>
+                    <input type="email" placeholder="email@example.com" class="register-input" required>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="register-label">Password</label>
+                    <input type="password" placeholder="••••••••" class="register-input" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label class="register-label">Konfirmasi Password</label>
+                    <input type="password" placeholder="Ulangi password" class="register-input" required>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="register-btn">Daftar</button>
+
+            </form>
+
+            <p class="text-center mt-6 text-sm">
+                Sudah punya akun? 
+                <a href="login.html" class="register-link">Login Sekarang</a>
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <div include-html="../components/footer.html"></div>
+
+    <script src="../js/include.js"></script>
+
+</body>
+</html>

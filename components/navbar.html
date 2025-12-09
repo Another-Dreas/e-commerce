@@ -9,14 +9,14 @@
 <header class="relative">
     <!-- NAVBAR -->
     <nav id="mainNav" class="fixed top-8 transition-all duration-300 bg-white dark:bg-black z-50 flex justify-between items-center px-6 md:px-16 py-5 border-b dark:border-gray-700 w-full">
-        <a href="index.html"><h1 class="font-extrabold text-2xl">ANOTHER</h1></a>
+        <a href="/index.html"><h1 class="font-extrabold text-2xl">ANOTHER</h1></a>
 
         <!-- NAV LINKS desktop -->
         <ul class="hidden md:flex gap-8 font-medium">
-            <li><a href="shop.html" class="cursor-pointer">Produk</a></li>
-            <li><a href="blog.html" class="cursor-pointer">Blog</a></li>
-            <li><a href="tentang.html" class="cursor-pointer">Tentang</a></li>
-            <li><a href="kontak.html" class="cursor-pointer">Kontak</a></li>
+            <li><a href="/shop.html" class="cursor-pointer">Produk</a></li>
+            <li><a href="/blog.html" class="cursor-pointer">Blog</a></li>
+            <li><a href="/tentang.html" class="cursor-pointer">Tentang</a></li>
+            <li><a href="/kontak.html" class="cursor-pointer">Kontak</a></li>
         </ul>
 
         <!-- SEARCH -->
@@ -33,7 +33,7 @@
                     <i class="fas fa-moon"></i>
                 </button>
                 <a href="pembayaran.html"><i class="fa fa-shopping-cart text-xl cursor-pointer"></i></a>
-                <i class="fa fa-user text-xl cursor-pointer hidden md:block"></i>
+                <a href="/auth/login.html"><i class="fa fa-user text-xl cursor-pointer hidden md:block"></i></a>
                 <!-- MOBILE SEARCH ICON -->
                 <i class="fa fa-search text-xl cursor-pointer md:hidden" onclick="toggleMobileSearch()"></i>
             </div>
@@ -47,14 +47,14 @@
     <div id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-black z-50 transform -translate-x-full transition-transform duration-300 ease-in-out px-6 py-20 space-y-6 text-lg flex flex-col" style="display: none;">
         <button class="absolute top-4 right-4 text-2xl" onclick="openMenu()">×</button>
         <div class="flex-1 space-y-6">
-            <a href="shop.html" class="block cursor-pointer">Produk</a>
-            <a href="blog.html" class="block cursor-pointer">Blog</a>
-            <a href="tentang.html" class="block cursor-pointer">Tentang</a>
-            <a href="kontak.html" class="block cursor-pointer">Kontak</a>
+            <a href="/shop.html" class="block cursor-pointer">Produk</a>
+            <a href="/blog.html" class="block cursor-pointer">Blog</a>
+            <a href="/tentang.html" class="block cursor-pointer">Tentang</a>
+            <a href="/kontak.html" class="block cursor-pointer">Kontak</a>
         </div>
         <div class="flex justify-center gap-4 py-4 border-t border-gray-300 dark:border-gray-600">
-            <a href="#" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full cursor-pointer">Masuk</a>
-            <a href="#" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full cursor-pointer">Daftar</a>
+            <a href="/auth/login.html" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full cursor-pointer">Masuk</a>
+            <a href="/auth/register.html" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full cursor-pointer">Daftar</a>
         </div>
     </div>
 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Login - Another Fashion E-commerce" />
+    <title>Login - Another Fashion E-commerce</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" 
+          rel="stylesheet">
+
+    <script>
+        tailwind.config = { darkMode: 'class' };
+    </script>
+
+    <!-- STYLE TANPA @apply — FULL CSS -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* CARD */
+        .login-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 1.25rem;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 420px;
+            transition: 0.3s;
+        }
+        .dark .login-card {
+            background: #111;
+            border-color: #333;
+            box-shadow: 0 8px 30px rgba(255,255,255,0.05);
+        }
+
+        /* TITLE */
+        .login-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* DESCRIPTION */
+        .login-desc {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .dark .login-desc {
+            color: #aaa;
+        }
+
+        /* LABEL */
+        .login-label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        /* INPUT */
+        .login-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 0.85rem;
+            border: 1px solid #d0d0d0;
+            background: #f3f3f3;
+            outline: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .login-input:focus {
+            border-color: black;
+            background: #fff;
+        }
+
+        .dark .login-input {
+            background: #1d1d1d;
+            border-color: #333;
+            color: white;
+        }
+        .dark .login-input:focus {
+            border-color: white;
+        }
+
+        /* BUTTON */
+        .login-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: black;
+            color: white;
+            border-radius: 0.85rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            opacity: 0.85;
+        }
+
+        .dark .login-btn {
+            background: white;
+            color: black;
+        }
+
+        /* LINK */
+        .login-link {
+            font-weight: 600;
+            text-decoration: none;
+            color: black;
+        }
+        .login-link:hover {
+            opacity: 0.7;
+        }
+        .dark .login-link {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body class="bg-white dark:bg-black dark:text-white transition-all duration-300">
+
+    <!-- NAVBAR -->
+    <div include-html="../components/navbar.html"></div>
+
+    <!-- MAIN -->
+    <main class="px-6 md:px-16 pt-28 pb-16 flex justify-center">
+
+        <div class="login-card">
+
+            <h1 class="login-title">Welcome Back</h1>
+            <p class="login-desc">Masuk untuk melanjutkan belanja dan melihat pesanan Anda.</p>
+
+            <form class="space-y-6">
+
+                <!-- Email -->
+                <div>
+                    <label class="login-label">Email</label>
+                    <input type="email" placeholder="email@example.com" class="login-input" required>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="login-label">Password</label>
+                    <input type="password" placeholder="••••••••" class="login-input" required>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="login-btn">Login</button>
+
+            </form>
+
+            <p class="text-center mt-6 text-sm">
+                Belum punya akun? 
+                <a href="register.html" class="login-link">Daftar Sekarang</a>
+            </p>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div include-html="../components/footer.html"></div>
+
+    <script src="../js/include.js"></script>
+    <script src="../script.js"></script>
+
+</body>
+</html>

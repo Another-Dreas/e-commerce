@@ -569,3 +569,126 @@ function initNavbarScroll() {
         adjustPadding();
     });
 }
+
+/* =====================
+   Auth simulation using localStorage (demo only)
+   - Stores registered users in localStorage under 'ecom_users'
+   - Saves current logged user under 'ecom_current_user'
+   - Provides client-side validation and feedback
+   NOTE: This is a demo implementation. Do NOT use in production.
+   ===================== */
+document.addEventListener('DOMContentLoaded', function() {
+    function showMessage(container, text, type) {
+        if (!container) return;
+        container.textContent = text;
+        container.classList.remove('error', 'success');
+        container.classList.add(type || 'error');
+        container.style.display = 'block';
+    }
+    function clearMessage(container) {
+        if (!container) return;
+        container.textContent = '';
+        container.style.display = 'none';
+        container.classList.remove('error', 'success');
+    }
+
+    function getUsers() {
+        try {
+            const raw = localStorage.getItem('ecom_users');
+            return raw ? JSON.parse(raw) : [];
+        } catch (e) { return []; }
+    }
+    function saveUsers(users) {
+        localStorage.setItem('ecom_users', JSON.stringify(users));
+    }
+    function findUserByEmail(email) {
+        if (!email) return null;
+        const users = getUsers();
+        return users.find(u => (u.email || '').toLowerCase() === email.toLowerCase()) || null;
+    }
+    function saveCurrentUser(user) {
+        if (!user) { localStorage.removeItem('ecom_current_user'); return; }
+        localStorage.setItem('ecom_current_user', JSON.stringify({ email: user.email, fullname: user.fullname }));
+    }
+
+    function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    // Login
+    const loginTitle = document.getElementById('login-title');
+    if (loginTitle) {
+        const loginCard = loginTitle.closest('.auth-card');
+        const loginForm = loginCard ? loginCard.querySelector('form.auth-form') : null;
+        const msg = loginCard ? loginCard.querySelector('.form-message') : null;
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                clearMessage(msg);
+                const emailInput = loginForm.querySelector('input[type="email"]');
+                const passInput = loginForm.querySelector('input[type="password"]');
+                const email = emailInput ? emailInput.value.trim() : '';
+                const pass = passInput ? passInput.value : '';
+
+                if (!email || !validateEmail(email)) { showMessage(msg, 'Masukkan email yang valid.', 'error'); emailInput && emailInput.focus(); return; }
+                if (!pass) { showMessage(msg, 'Masukkan password Anda.', 'error'); passInput && passInput.focus(); return; }
+
+                const user = findUserByEmail(email);
+                if (!user) { showMessage(msg, 'Akun tidak ditemukan. Silakan daftar terlebih dahulu.', 'error'); return; }
+                if (user.password !== pass) { showMessage(msg, 'Password salah. Coba lagi.', 'error'); passInput && passInput.focus(); return; }
+
+                // success
+                saveCurrentUser(user);
+                showMessage(msg, 'Berhasil masuk. Mengarahkan...', 'success');
+                setTimeout(() => { window.location.href = '../index.html'; }, 800);
+            });
+        }
+    }
+
+    // Register
+    const registerTitle = document.getElementById('register-title');
+    if (registerTitle) {
+        const regCard = registerTitle.closest('.auth-card');
+        const registerForm = regCard ? regCard.querySelector('form.auth-form') : null;
+        const msg = regCard ? regCard.querySelector('.form-message') : null;
+        if (registerForm) {
+            const fullname = registerForm.querySelector('#fullname');
+            const email = registerForm.querySelector('#email');
+            const password = registerForm.querySelector('#password');
+            const confirm = registerForm.querySelector('#confirm_password');
+            const pwNote = registerForm.querySelector('.pw-note');
+
+            function checkPwMatch() {
+                if (!password || !confirm) return;
+                if (!confirm.value) { confirm.classList.remove('input-error'); pwNote && (pwNote.style.display = 'none'); return; }
+                if (password.value !== confirm.value) { confirm.classList.add('input-error'); pwNote && (pwNote.style.display = 'block'); }
+                else { confirm.classList.remove('input-error'); pwNote && (pwNote.style.display = 'none'); }
+            }
+            if (password && confirm) { password.addEventListener('input', checkPwMatch); confirm.addEventListener('input', checkPwMatch); }
+
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                clearMessage(msg);
+
+                const nameVal = fullname ? fullname.value.trim() : '';
+                const emailVal = email ? email.value.trim() : '';
+                const passVal = password ? password.value : '';
+                const confVal = confirm ? confirm.value : '';
+
+                if (!nameVal) { showMessage(msg, 'Nama lengkap wajib diisi.', 'error'); fullname && fullname.focus(); return; }
+                if (!emailVal || !validateEmail(emailVal)) { showMessage(msg, 'Masukkan email yang valid.', 'error'); email && email.focus(); return; }
+                if (!passVal || passVal.length < 6) { showMessage(msg, 'Password minimal 6 karakter.', 'error'); password && password.focus(); return; }
+                if (passVal !== confVal) { showMessage(msg, 'Password dan konfirmasi tidak cocok.', 'error'); confirm && confirm.focus(); return; }
+
+                // check existing
+                if (findUserByEmail(emailVal)) { showMessage(msg, 'Email sudah terdaftar. Silakan login.', 'error'); return; }
+
+                // save new user (demo): store plaintext password (NOT for production)
+                const users = getUsers();
+                users.push({ fullname: nameVal, email: emailVal, password: passVal });
+                saveUsers(users);
+
+                showMessage(msg, 'Pendaftaran sukses. Mengarahkan ke halaman login...', 'success');
+                setTimeout(() => { window.location.href = 'login.html'; }, 900);
+            });
+        }
+    }
+});

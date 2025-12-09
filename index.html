@@ -167,15 +167,111 @@
             </div>
         </section>
 
-        <!-- ============== BROWSE BY STYLE ============== -->
-        <section class="px-6 md:px-16 py-12">
-            <h2 class="text-center text-3xl font-extrabold mb-10">BROWSE BY DRESS STYLE</h2>
+        <!-- Section 1: Image left, text right -->
+        <section class="landing-section">
+            <div class="landing-row">
+                <div class="landing-image">
+                    <img src="img/Frame 32.png" alt="Crispy Snack Pack" />
+                </div>
+                <div class="landing-text">
+                    <h2>Crunchy Snacks, Happy Moments</h2>
+                    <h3 class="company">Snackify Co.</h3>
+                    <p>
+                        Nikmati camilan renyah dan gurih yang dibuat dari bahan pilihan. Cocok untuk menemani waktu santai, nonton, atau kumpul bersama teman.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl p-24 text-3xl font-bold text-center">Casual</div>
-                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl p-24 text-3xl font-bold text-center">Formal</div>
-                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl p-24 text-3xl font-bold text-center">Party</div>
-                <div class="bg-gray-200 dark:bg-gray-800 rounded-xl p-24 text-3xl font-bold text-center">Gym</div>
+        <!-- Section 2: Text left, image right -->
+        <section class="landing-section">
+            <div class="landing-row reverse">
+                <div class="landing-image">
+                    <img src="img/Frame 33.png" alt="Delicious Snack Bowl" />
+                </div>
+                <div class="landing-text">
+                    <h2>Handcrafted Flavorful Bites</h2>
+                    <h3 class="company">BiteCraft</h3>
+                    <p>
+                        Resep turun-temurun dan rasa otentik membuat setiap gigitan memiliki karakter. Kami menghadirkan kualitas dan rasa yang selalu dirindukan.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============== TESTIMONIALS / REVIEWS ============== -->
+        <section class="testimonials-section px-6 md:px-16 py-12">
+            <div class="testimonials-header max-w-7xl mx-auto flex items-center justify-between mb-8">
+                <h2 class="testimonials-title">What our customers are saying</h2>
+                <div class="testimonials-nav">
+                    <button class="nav-btn" aria-hidden="true">&#8592;</button>
+                    <button class="nav-btn" aria-hidden="true">&#8594;</button>
+                </div>
+            </div>
+
+            <div class="testimonials-grid max-w-7xl mx-auto grid gap-6">
+                <!-- Card 1 -->
+                <article class="testimonial-card">
+                    <div class="card-top">
+                        <div class="avatar">
+                            <img src="img/profile1.png" alt="Aria" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <svg class="avatar-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="display:flex">
+                                <circle cx="50" cy="50" r="50" fill="#f3f4f6" />
+                                <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="42" fill="#111827" font-family="Inter, sans-serif">A</text>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Simply delicious!</h4>
+                            <p class="card-body">Rasa camilannya luar biasa — renyah dan pas bumbunya. Saya selalu stok untuk acara keluarga.</p>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+                        <div class="username">@aria_snacks</div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="testimonial-card">
+                    <div class="card-top">
+                        <div class="avatar">
+                            <img src="img/profile2.png" alt="Rafi" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <svg class="avatar-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="display:flex">
+                                <circle cx="50" cy="50" r="50" fill="#f3f4f6" />
+                                <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="42" fill="#111827" font-family="Inter, sans-serif">R</text>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Texture on point</h4>
+                            <p class="card-body">Teksturnya pas — crunchy tapi nggak terlalu berminyak. Saya suka variasi rasanya.</p>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="rating">⭐️⭐️⭐️⭐️☆</div>
+                        <div class="username">@rafi.foodie</div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="testimonial-card">
+                    <div class="card-top">
+                        <div class="avatar">
+                            <img src="img/profile3.png" alt="Maya" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <svg class="avatar-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="display:flex">
+                                <circle cx="50" cy="50" r="50" fill="#f3f4f6" />
+                                <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="42" fill="#111827" font-family="Inter, sans-serif">M</text>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Perfect snack for movie night</h4>
+                            <p class="card-body">Camilan ini selalu jadi andalan pas nonton bareng. Praktis dan enak untuk semua umur.</p>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="rating">⭐️⭐️⭐️⭐️⭐️</div>
+                        <div class="username">@mayamovie</div>
+                    </div>
+                </article>
             </div>
         </section>
 
