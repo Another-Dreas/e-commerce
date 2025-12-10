@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fashion e-commerce product catalog with filters and search.">
     <meta name="keywords" content="fashion, clothing, e-commerce, products, catalog, filters">
-    <title>SHOP.CO - Casual</title>
+    <title>Rumah SKS - Produk</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- TailwindCSS CDN -->
@@ -37,7 +37,7 @@
 
     <!-- BREADCRUMB -->
     <div class="text-sm text-gray-500 dark:text-gray-400 mb-8">
-        <a href="index.html" class="hover:underline">Home</a> > Blog
+        <a href="index.html" class="hover:underline">Home</a> > Produk
     </div>
     <!-- SHOP CONTENT -->
     <div class="px-4 grid grid-cols-1 lg:grid-cols-4 gap-8 mb-20">
@@ -53,27 +53,36 @@
 
                     <!-- CATEGORIES -->
                     <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-medium">T-shirts</span>
-                            <i class="fa fa-chevron-down text-sm text-gray-500"></i>
+                        <!-- Kuping Gajah -->
+                        <div class="category-item mb-3">
+                            <button onclick="toggleFilterCategory('cat1')" class="w-full flex justify-between items-center">
+                                <span class="font-medium">Kuping Gajah</span>
+                                <i id="icon-cat1" class="fa fa-chevron-down text-sm text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div id="submenu-cat1" class="hidden ml-4 mt-2 text-sm text-gray-600">
+                                <p class="py-1 cursor-pointer hover:text-black">Original</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Coklat</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Pandan</p>
+                            </div>
                         </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-medium">Shorts</span>
-                            <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-                        </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-medium">Hoodie</span>
-                            <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-                        </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="font-medium">Jeans</span>
-                            <i class="fa fa-chevron-down text-sm text-gray-500"></i>
+
+                        <!-- Untir-Untir -->
+                        <div class="category-item mb-3">
+                            <button onclick="toggleFilterCategory('cat2')" class="w-full flex justify-between items-center">
+                                <span class="font-medium">Untir-Untir</span>
+                                <i id="icon-cat2" class="fa fa-chevron-down text-sm text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div id="submenu-cat2" class="hidden ml-4 mt-2 text-sm text-gray-600">
+                                <p class="py-1 cursor-pointer hover:text-black">Original</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Gula</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Coklat</p>
+                            </div>
                         </div>
                     </div>
 
                     <!-- PRICE SLIDER -->
                     <div class="mb-6">
-                        <h4 class="font-medium mb-4">Price</h4>
+                        <h4 class="font-medium mb-4">Harga</h4>
                         <div class="space-y-3">
                             <div class="relative">
                                 <input type="range" min="0" max="10000000" value="0" id="minPrice" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-full">
@@ -90,63 +99,23 @@
                         </div>
                     </div>
 
-                    <!-- COLORS -->
-                    <div class="mb-6">
-                        <h4 class="font-medium mb-4">Colors</h4>
-                        <div class="flex flex-wrap gap-3">
-                            <div class="w-8 h-8 rounded-full bg-black border-2 border-gray-300 cursor-pointer color-filter" data-color="black"></div>
-                            <div class="w-8 h-8 rounded-full bg-red-500 border-2 border-gray-300 cursor-pointer color-filter" data-color="red"></div>
-                            <div class="w-8 h-8 rounded-full bg-green-500 border-2 border-gray-300 cursor-pointer color-filter" data-color="green"></div>
-                            <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-gray-300 cursor-pointer color-filter" data-color="blue"></div>
-                            <div class="w-8 h-8 rounded-full bg-yellow-500 border-2 border-gray-300 cursor-pointer color-filter" data-color="yellow"></div>
-                            <div class="w-8 h-8 rounded-full bg-blue-300 border-2 border-gray-300 cursor-pointer color-filter" data-color="lightblue"></div>
-                            <div class="w-8 h-8 rounded-full bg-purple-500 border-2 border-gray-300 cursor-pointer color-filter" data-color="purple"></div>
-                            <div class="w-8 h-8 rounded-full bg-pink-500 border-2 border-gray-300 cursor-pointer color-filter" data-color="pink"></div>
-                        </div>
-                    </div>
 
                     <!-- SIZE -->
                     <div class="mb-6">
-                        <h4 class="font-medium mb-4">Size</h4>
+                        <h4 class="font-medium mb-4">Berat/Kemasan</h4>
                         <div class="flex flex-wrap gap-2">
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="xx-small">XX-Small</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="x-small">X-Small</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="small">Small</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="medium">Medium</button>
-                            <button class="px-3 py-1 bg-black text-white border border-black rounded-full text-sm size-filter active" data-size="large">Large</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="x-large">X-Large</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="xx-large">XX-Large</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="3x-large">3X-Large</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="4x-large">4X-Large</button>
-                        </div>
-                    </div>
-
-                    <!-- DRESS STYLE -->
-                    <div class="mb-6">
-                        <h4 class="font-medium mb-4">Dress Style</h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center cursor-pointer style-filter" data-style="casual">
-                                <span>Casual</span>
-                                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-                            </div>
-                            <div class="flex justify-between items-center cursor-pointer style-filter" data-style="formal">
-                                <span>Formal</span>
-                                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-                            </div>
-                            <div class="flex justify-between items-center cursor-pointer style-filter" data-style="party">
-                                <span>Party</span>
-                                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-                            </div>
-                            <div class="flex justify-between items-center cursor-pointer style-filter" data-style="gym">
-                                <span>Gym</span>
-                                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-                            </div>
+                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="100 gr">100 gr</button>
+                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="250 gr">250 gr</button>
+                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="500 gr">500 gr</button>
+                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="1000 gr">1000 gr</button>
+                            <button class="px-3 py-1 bg-black text-white border border-black rounded-full text-sm size-filter active" data-size="1,5 Kg">1,5 Kg</button>
+                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-full text-sm size-filter" data-size="2 Kg">2 Kg</button>
                         </div>
                     </div>
 
                     <!-- APPLY FILTER BUTTON -->
                     <button class="w-full bg-black dark:bg-white dark:text-black text-white py-3 rounded-lg font-semibold apply-filter">
-                        Apply Filter
+                        Gunakan Filter
                     </button>
                 </div>
             </div>
@@ -156,9 +125,9 @@
         <div class="lg:col-span-3">
             <!-- TITLE BAR -->
             <div class="flex flex-wrap items-center justify-between mb-6 gap-4">
-                <h1 class="text-3xl font-bold">Casual</h1>
+                <h1 class="text-3xl font-bold">Produk</h1>
                 <div class="flex items-center gap-4">
-                    <span class="text-sm text-gray-600 dark:text-gray-400">Showing 1-10 of 100 Products</span>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Menampilkan 1-10 dari 100 Produk</span>
                     <!-- MOBILE FILTER ICON -->
                     <button onclick="openMobileFilters()" class="md:hidden text-xl text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
                         <i class="fa fa-sliders-h"></i>
@@ -180,8 +149,8 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
                 <!-- PRODUCT CARD 1 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 32.png" alt="Gradient Graphic T-shirt" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Gradient Graphic T-shirt</h3>
+                    <img src="img/produk10.jpeg" alt="Kuping Gajah" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Kuping Gajah</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -190,17 +159,17 @@
                             <i class="fa fa-star-half-alt"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        <span class="text-sm text-gray-600 dark:text-gray-400">3.5/5</span>
+                        <span class="text-sm text-gray-600 dark:text-gray-400">4.5/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 2,175,000</span>
+                        <span class="font-bold text-xl">Rp 22,000</span>
                     </div>
                 </div>
 
                 <!-- PRODUCT CARD 2 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 33.png" alt="Polo with Tipping Details" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Polo with Tipping Details</h3>
+                    <img src="img/produk3.jpeg" alt="Untir-untir" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Untir-untir</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -212,14 +181,14 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">4.5/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 2,700,000</span>
+                        <span class="font-bold text-xl">Rp 26,000</span>
                     </div>
                 </div>
 
                 <!-- PRODUCT CARD 3 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 34.png" alt="Black Striped T-shirt" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Black Striped T-shirt</h3>
+                    <img src="img/produk1.jpeg" alt="Kue Bawang" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Kue Bawang</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -231,16 +200,16 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">5.0/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 1,800,000</span>
-                        <span class="text-gray-500 line-through ml-2">Rp 2,250,000</span>
+                        <span class="font-bold text-xl">Rp 34,000</span>
+                        <span class="text-gray-500 line-through ml-2">Rp 48,000</span>
                         <span class="bg-red-500 text-white text-xs px-2 py-1 rounded ml-2">-30%</span>
                     </div>
                 </div>
 
                 <!-- PRODUCT CARD 4 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 38.png" alt="Skinny Fit Jeans" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Skinny Fit Jeans</h3>
+                    <img src="img/produk2.jpeg" alt="Untir-untir Gula" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Untir-untir Gula</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -252,7 +221,7 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">3.5/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 3,600,000</span>
+                        <span class="font-bold text-xl">Rp 26,000</span>
                         <span class="text-gray-500 line-through ml-2">Rp 3,900,000</span>
                         <span class="bg-red-500 text-white text-xs px-2 py-1 rounded ml-2">-20%</span>
                     </div>
@@ -260,8 +229,8 @@
 
                 <!-- PRODUCT CARD 5 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 39.png" alt="Checkered Shirt" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Checkered Shirt</h3>
+                    <img src="img/produk4.jpeg" alt="Untir-Untir Coklat" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Untir-Untir Coklat</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -273,14 +242,14 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">4.5/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 1,950,000</span>
+                        <span class="font-bold text-xl">Rp 24,000</span>
                     </div>
                 </div>
 
                 <!-- PRODUCT CARD 6 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 40.png" alt="Sleeve Striped T-shirt" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Sleeve Striped T-shirt</h3>
+                    <img src="img/produk5.jpeg" alt="Kacang Molen" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Kacang Molen</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -292,16 +261,16 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">4.0/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 1,950,000</span>
-                        <span class="text-gray-500 line-through ml-2">Rp 2,400,000</span>
+                        <span class="font-bold text-xl">Rp 24,000</span>
+                        <span class="text-gray-500 line-through ml-2">Rp 30,000</span>
                         <span class="bg-red-500 text-white text-xs px-2 py-1 rounded ml-2">-20%</span>
                     </div>
                 </div>
 
                 <!-- PRODUCT CARD 7 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 41.png" alt="Vertical Striped Shirt" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Vertical Striped Shirt</h3>
+                    <img src="img/produk6.jpeg" alt="Untir-untir Gula" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Untir-untir Gula</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -313,7 +282,7 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">5.0/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 3,180,000</span>
+                        <span class="font-bold text-xl">Rp 26,000</span>
                         <span class="text-gray-500 line-through ml-2">Rp 3,480,000</span>
                         <span class="bg-red-500 text-white text-xs px-2 py-1 rounded ml-2">-20%</span>
                     </div>
@@ -321,8 +290,8 @@
 
                 <!-- PRODUCT CARD 8 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 42.png" alt="Courage Graphic T-shirt" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Courage Graphic T-shirt</h3>
+                    <img src="img/produk8.jpeg" alt="Kuping Gajah Pink" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Kuping Gajah Pink</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -334,14 +303,14 @@
                         <span class="text-sm text-gray-600 dark:text-gray-400">4.0/5</span>
                     </div>
                     <div class="price flex items-center">
-                        <span class="font-bold text-xl">Rp 2,175,000</span>
+                        <span class="font-bold text-xl">Rp 24,000</span>
                     </div>
                 </div>
 
                 <!-- PRODUCT CARD 9 -->
                 <div class="product-card bg-white dark:bg-gray-900 rounded-xl shadow-sm border dark:border-gray-700 p-4 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <img src="img/Frame 43.png" alt="Loose Fit Bermuda Shorts" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Loose Fit Bermuda Shorts</h3>
+                    <img src="img/produk9.jpeg" alt="Kolong-kolong Pandan" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="font-semibold text-lg mb-2 line-clamp-2 overflow-hidden text-ellipsis">Kolong-kolong pandan</h3>
                     <div class="rating flex items-center mb-2">
                         <div class="flex text-yellow-400 mr-2">
                             <i class="fa fa-star"></i>
@@ -486,28 +455,37 @@
         </div>
 
         <!-- MOBILE CATEGORIES -->
-        <div class="mb-6">
-            <div class="flex justify-between items-center mb-3">
-                <span class="font-medium">T-shirts</span>
-                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-            </div>
-            <div class="flex justify-between items-center mb-3">
-                <span class="font-medium">Shorts</span>
-                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-            </div>
-            <div class="flex justify-between items-center mb-3">
-                <span class="font-medium">Hoodie</span>
-                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-            </div>
-            <div class="flex justify-between items-center mb-3">
-                <span class="font-medium">Jeans</span>
-                <i class="fa fa-chevron-down text-sm text-gray-500"></i>
-            </div>
-        </div>
+                    <div class="mb-6">
+                        <!-- Kuping Gajah -->
+                        <div class="category-item mb-3">
+                            <button onclick="toggleFilterCategory('cat1')" class="w-full flex justify-between items-center">
+                                <span class="font-medium">Kuping Gajah</span>
+                                <i id="icon-cat1" class="fa fa-chevron-down text-sm text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div id="submenu-cat1" class="hidden ml-4 mt-2 text-sm text-gray-600">
+                                <p class="py-1 cursor-pointer hover:text-black">Original</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Coklat</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Pandan</p>
+                            </div>
+                        </div>
+
+                        <!-- Untir-Untir -->
+                        <div class="category-item mb-3">
+                            <button onclick="toggleFilterCategory('cat2')" class="w-full flex justify-between items-center">
+                                <span class="font-medium">Untir-Untir</span>
+                                <i id="icon-cat2" class="fa fa-chevron-down text-sm text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div id="submenu-cat2" class="hidden ml-4 mt-2 text-sm text-gray-600">
+                                <p class="py-1 cursor-pointer hover:text-black">Original</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Gula</p>
+                                <p class="py-1 cursor-pointer hover:text-black">Coklat</p>
+                            </div>
+                        </div>
+                    </div>
 
         <!-- MOBILE PRICE FILTER -->
         <div class="mb-6">
-            <h4 class="font-medium mb-4">Price</h4>
+            <h4 class="font-medium mb-4">Harga</h4>
             <div class="space-y-3">
                 <div class="relative">
                     <input type="range" min="0" max="10000000" value="0" id="mobileMinPrice" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 rounded-full">
@@ -559,7 +537,7 @@
         <div class="mb-6">
             <h4 class="font-medium mb-4">Dress Style</h4>
             <ul class="space-y-3">
-                <li class="cursor-pointer hover:text-black dark:hover:text-white">Casual</li>
+                <li class="cursor-pointer hover:text-black dark:hover:text-white">Produk</li>
                 <li class="cursor-pointer hover:text-black dark:hover:text-white">Formal</li>
                 <li class="cursor-pointer hover:text-black dark:hover:text-white">Party</li>
                 <li class="cursor-pointer hover:text-black dark:hover:text-white">Gym</li>

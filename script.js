@@ -691,4 +691,75 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
+    /* =====================
+       Toggle Filter Submenus (Desktop & Mobile)
+       ===================== */
+    function toggleFilterCategory(id) {
+        const submenu = document.getElementById(`submenu-${id}`);
+        const icon = document.getElementById(`icon-${id}`);
+        if (!submenu || !icon) return;
+
+        if (submenu.classList.contains('hidden')) {
+            submenu.classList.remove('hidden');
+            icon.classList.add('rotate-180'); // untuk animasi ikon
+        } else {
+            submenu.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    }
+
+    // Attach toggle event ke semua tombol kategori
+    document.querySelectorAll('.category-item button').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // Ambil data-id dari button atau fallback ke id
+            const id = this.dataset.id || this.getAttribute('data-id') || this.querySelector('i').id.split('icon-')[1];
+            toggleFilterCategory(id);
+        });
+    });
+
+    /* =====================
+       Mobile Filter Panel Open / Close
+       ===================== */
+    const mobileFilterPanel = document.getElementById('mobileFilterPanel');
+
+    window.openMobileFilters = function() {
+        if (mobileFilterPanel) {
+            mobileFilterPanel.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    window.closeMobileFilters = function() {
+        if (mobileFilterPanel) {
+            mobileFilterPanel.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+    }
+
+    /* =====================
+       Example: Apply Filters Button (Mobile)
+       ===================== */
+    const applyMobileFilterBtn = document.querySelector('.apply-mobile-filter');
+    if (applyMobileFilterBtn) {
+        applyMobileFilterBtn.addEventListener('click', function() {
+            // Ambil filter kategori yang terbuka
+            const openCategories = Array.from(document.querySelectorAll('.category-item .hidden:not(.hidden)'));
+            console.log('Open categories:', openCategories);
+
+            // Bisa ambil pilihan warna, ukuran, harga, dll di sini
+
+            closeMobileFilters();
+            this.textContent = 'Applied!';
+            setTimeout(() => { this.textContent = 'Apply Filter'; }, 2000);
+        });
+    }
+
+    /* =====================
+       Optional: Sync filter state desktop & mobile
+       ===================== */
+    // Misal, warna, ukuran, harga bisa diambil dari desktop & mobile
+    // dan disimpan di localStorage seperti yang sudah kamu buat
+
+
 });
