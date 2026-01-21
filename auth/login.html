@@ -22,152 +22,149 @@
     </script>
 
     <!-- STYLE TANPA @apply — FULL CSS -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+ <style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at top right, #fdfbfb 0%, #ebedee 100%);
+    }
+    .dark body {
+        background: radial-gradient(circle at top right, #1a1a1a 0%, #000000 100%);
+    }
 
-        /* CARD */
-        .login-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 1.25rem;
-            border: 1px solid #e5e5e5;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            width: 100%;
-            max-width: 420px;
-            transition: 0.3s;
-        }
-        .dark .login-card {
-            background: #111;
-            border-color: #333;
-            box-shadow: 0 8px 30px rgba(255,255,255,0.05);
-        }
+    /* GLASSMORPHISM CARD */
+    .login-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 3rem;
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        width: 100%;
+        max-width: 450px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .login-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    }
 
-        /* TITLE */
-        .login-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+    .dark .login-card {
+        background: rgba(20, 20, 20, 0.8);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
 
-        /* DESCRIPTION */
-        .login-desc {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-        .dark .login-desc {
-            color: #aaa;
-        }
+    /* INPUT STYLING */
+    .login-input {
+        width: 100%;
+        padding: 1rem 1.2rem;
+        border-radius: 1rem;
+        border: 2px solid transparent;
+        background: #f1f5f9;
+        outline: none;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+    .login-input:focus {
+        border-color: #000;
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+    }
 
-        /* LABEL */
-        .login-label {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            display: block;
-        }
+    .dark .login-input {
+        background: #262626;
+        color: white;
+    }
+    .dark .login-input:focus {
+        border-color: #fff;
+        background: #1a1a1a;
+    }
 
-        /* INPUT */
-        .login-input {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            border-radius: 0.85rem;
-            border: 1px solid #d0d0d0;
-            background: #f3f3f3;
-            outline: none;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-        .login-input:focus {
-            border-color: black;
-            background: #fff;
-        }
+    /* BUTTON ANIMATION */
+    .login-btn {
+        width: 100%;
+        padding: 1rem;
+        background: #000;
+        color: #fff;
+        border-radius: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .login-btn:hover {
+        background: #333;
+        letter-spacing: 2px;
+    }
+    .dark .login-btn {
+        background: #fff;
+        color: #000;
+    }
 
-        .dark .login-input {
-            background: #1d1d1d;
-            border-color: #333;
-            color: white;
-        }
-        .dark .login-input:focus {
-            border-color: white;
-        }
+    /* BACKGROUND DECORATION */
+    .bg-shape {
+        position: absolute;
+        z-index: -1;
+        filter: blur(80px);
+        border-radius: 50%;
+    }
+</style>
 
-        /* BUTTON */
-        .login-btn {
-            width: 100%;
-            padding: 0.9rem;
-            background: black;
-            color: white;
-            border-radius: 0.85rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        .login-btn:hover {
-            opacity: 0.85;
-        }
+<body class="bg-white dark:bg-black dark:text-white transition-all duration-300 overflow-x-hidden">
 
-        .dark .login-btn {
-            background: white;
-            color: black;
-        }
+    <div class="bg-shape bg-yellow-200/50 w-64 h-64 top-20 -left-20"></div>
+    <div class="bg-shape bg-blue-200/30 w-96 h-96 bottom-10 -right-20"></div>
 
-        /* LINK */
-        .login-link {
-            font-weight: 600;
-            text-decoration: none;
-            color: black;
-        }
-        .login-link:hover {
-            opacity: 0.7;
-        }
-        .dark .login-link {
-            color: white;
-        }
-    </style>
-
-</head>
-
-<body class="bg-white dark:bg-black dark:text-white transition-all duration-300">
-
-    <!-- NAVBAR -->
     <div include-html="../auth/navbar-auth.html"></div>
 
-    <!-- MAIN -->
-    <main class="px-6 md:px-16 pt-28 pb-16 flex justify-center">
-
+    <main class="min-h-screen flex items-center justify-center px-6 pt-20">
         <div class="login-card">
-
-            <h1 class="login-title">Selamat Datang <br> Kembali</h1>
-            <p class="login-desc">Masuk untuk melanjutkan belanja dan melihat pesanan Anda.</p>
+            <div class="mb-10 text-center">
+                <h1 class="text-4xl font-black tracking-tight mb-3">Welcome Back</h1>
+                <p class="login-desc text-lg">Senang melihat Anda kembali!</p>
+            </div>
 
             <form class="space-y-6">
-
-                <!-- Email -->
                 <div>
-                    <label class="login-label">Email</label>
-                    <input type="email" placeholder="email@example.com" class="login-input" required>
+                    <label class="login-label text-sm mb-2 ml-1">Email Address</label>
+                    <div class="relative">
+                        <input type="email" placeholder="name@example.com" class="login-input" required>
+                    </div>
                 </div>
 
-                <!-- Password -->
-                <div>
-                    <label class="login-label">Password</label>
+                <div class="mb-2">
+                    <div class="flex justify-between items-center mb-2 ml-1">
+                        <label class="login-label text-sm">Password</label>
+                        <a href="#" class="text-xs font-semibold hover:underline opacity-60">Lupa Password?</a>
+                    </div>
                     <input type="password" placeholder="••••••••" class="login-input" required>
                 </div>
 
-                <!-- Submit -->
-                <button type="submit" class="login-btn">Login</button>
-
+                <button type="submit" class="login-btn shadow-lg">
+                    Masuk
+                </button>
             </form>
 
-            <p class="text-center mt-6 text-sm">
-                Belum punya akun? 
-                <a href="register.html" class="login-link">Daftar Sekarang</a>
-            </p>
+            <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center"><span class="w-full border-t dark:border-gray-800"></span></div>
+                <div class="relative flex justify-center text-xs uppercase"><span class="bg-white dark:bg-[#141414] px-2 text-gray-500">Atau masuk dengan</span></div>
+            </div>
 
+            <div class="flex gap-4 mb-8">
+                <button class="flex-1 py-3 border dark:border-gray-800 rounded-xl flex justify-center hover:bg-gray-50 dark:hover:bg-white/5 transition">
+                    <i class="fab fa-google text-lg"></i>
+                </button>
+                <button class="flex-1 py-3 border dark:border-gray-800 rounded-xl flex justify-center hover:bg-gray-50 dark:hover:bg-white/5 transition">
+                    <i class="fab fa-apple text-lg"></i>
+                </button>
+            </div>
+
+            <p class="text-center text-sm text-gray-500">
+                Belum punya akun? 
+                <a href="register.html" class="font-bold text-black dark:text-white hover:underline">Buat akun gratis</a>
+            </p>
         </div>
     </main>
 
